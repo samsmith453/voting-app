@@ -2,7 +2,7 @@
     var addButton = document.querySelectorAll(".btn-add");
     var deleteButton = document.querySelector(".btn-delete");
     var clickNbr = document.querySelector("#click-nbr");
-    var apiUrl = process.env.APP_URL + "/api/:id/clicks";
+    var apiUrl = "https://myfccvotingapp.herokuapp.com" + "/api/:id/clicks";
    
    function updateClickCount (data) {
     
