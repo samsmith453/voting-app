@@ -3,7 +3,7 @@
     var profileUsername = document.querySelector('#profile-username') || null;
     var profileRepos = document.querySelector('#profile-repos') || null;
     var displayName = document.querySelector('#display-name');
-    var apiUrl = "https://fccvotingapp-iamsamsmith.c9users.io" + '/api/:id';
+    var apiUrl = process.env.APP_URL + '/api/:id';
     
     function updateHtmlElement (data, element, userProperty) {
         if(data[userProperty]) element.innerHTML = data[userProperty];

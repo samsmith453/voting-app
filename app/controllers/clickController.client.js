@@ -2,7 +2,7 @@
     var addButton = document.querySelectorAll(".btn-add");
     var deleteButton = document.querySelector(".btn-delete");
     var clickNbr = document.querySelector("#click-nbr");
-    var apiUrl = "https://fccvotingapp-iamsamsmith.c9users.io" + "/api/:id/clicks";
+    var apiUrl = process.env.APP_URL + "/api/:id/clicks";
    
    function updateClickCount (data) {
     
