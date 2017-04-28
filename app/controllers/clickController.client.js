@@ -7,10 +7,12 @@
    function updateClickCount (data) {
     
       var json = JSON.parse(data);
+      console.log(json);
       
-      var clicksObject = json.nbrClicks;
-      console.log(clicksObject);
-      var choice = json.github.choice;
+      var clicksObject = json.clicks.nbrClicks;
+      
+      var choice = json.choice;
+      console.log(choice);
       
       hideTheButtons(choice);
       

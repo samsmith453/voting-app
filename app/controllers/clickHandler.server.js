@@ -3,8 +3,28 @@ var Users = require("../models/users.js");
 function ClickHandler () {
 
     this.getClicks = function (req, res) {
+    var choice;
+    var clicks;
     
-    
+    Users
+        .findOne({"github.id": req.user.github.id}, {"_id": false})
+        .exec(function(err, result){
+            if(err) {throw err}
+            choice = result.github.choice;
+            
+            Users
+            .findOne({}, {"_id": false})
+            .exec(function (err, result) {
+            if (err) {throw err;}
+            clicks = result;
+            console.log(choice);
+            res.json({
+                "clicks": clicks,
+                "choice": choice
+            });
+        });
+        });
+        
     // if you want to reset the choice
         // Users.findOneAndUpdate({"github.id": req.user.github.id}, {"github.choice": "none"})
         //  .exec(function(err, result){
@@ -17,13 +37,7 @@ function ClickHandler () {
         //      if(err) {throw err;}
         //  });
     
-        Users
-            .findOne({}, {"_id": false})
-            .exec(function (err, result) {
-            if (err) {throw err;}
-            
-            res.json(result);
-        });
+        
     };
     
         
